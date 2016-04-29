@@ -1,6 +1,10 @@
 # vagrant-centos6-php56
 Turn-key LAMP/LNMP development stack, based on Centos 6, PHP5.6, MySQL 5.6.
 
+## Dependencies:
+- git https://git-scm.com/downloads
+- vagrant https://www.vagrantup.com/downloads.html
+
 ## Installation:
 ### Steps:
 1. Create a directory to host your VMs (e.g. /code)
