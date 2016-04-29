@@ -3,6 +3,7 @@ Turn-key LAMP/LNMP development stack, based on Centos 6, PHP5.6, MySQL 5.6.
 
 ## Dependencies:
 - git https://git-scm.com/downloads
+- virtualbox https://www.virtualbox.org/wiki/Downloads
 - vagrant https://www.vagrantup.com/downloads.html
 
 ## Installation:
