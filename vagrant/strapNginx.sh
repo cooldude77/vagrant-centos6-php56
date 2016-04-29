@@ -1,3 +1,3 @@
-sudo yum install -y nginx # nginx-*
-sudo service nginx start
+sudo yum install -y nginx
 sudo chkconfig nginx on
+sudo service nginx start
