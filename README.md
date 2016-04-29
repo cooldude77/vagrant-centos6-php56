@@ -1,5 +1,5 @@
 # vagrant-centos6-php56
-Vagrant config: Centos 6, PHP5.6, MySQL 5.6...
+Turn-key LAMP/LNMP development stack, based on Centos 6, PHP5.6, MySQL 5.6.
 
 ## Installation:
 ### Steps:
