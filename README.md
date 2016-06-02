@@ -24,7 +24,7 @@ There are two directories within the checked-out code:
   
 - `./vagrant` contains all the files necessary to run the Vagrant VM.
 - `./workspace` provides a directory in which to store your working files, which is file-shared to the Vagrant VM - so you can access your working files from both your OS and the Vagrant VM.
-- `./workspace` is also used by the Vagrant VM to serve projects via `http://localhost`
+- `./workspace` is also used by the Vagrant VM to serve projects via `http://localhost:8080`
 
 ## Starting the Vagrant VM:
 1. 'cd' to the ./vagrant directory
@@ -39,3 +39,39 @@ On initial load, Vagrant may take anywhere up to 10 mins to install required dep
 Vagrant automatically sets up SSH authentication, so SSH connections to the VM are simple and straightforward.
 
 - In the `./vagrant` directory, type: `vagrant ssh`.
+
+Vagrant automatically provisions ssh key pairs, so you will not have to provide any username or password when you SSH.  You will connect automatically as the 'vagrant' user, and will be able to `sudo` once inside.
+
+## Hosting local sites from the VM:
+### Basic/quick usage:
+By default, Apache will serve everything inside the `./workspace` directory as one site.  This is convenient for anyone with little or now knowledge of configuring Apache, or if time is particularly tight - you could simply have one Vagrant VM per project, and keep things super simple.
+
+However, if your project requries custom configuration, or if you'd prefer to run multiple projects within one VM (recommended if you're having to switch between projects often), you will most likely prefer the 'Advanced' usage (see below).
+
+###Advanced usage:
+To set up your own custom virtual hosts, and/or host multiple sites from the same VM, follow this example to get started:
+
+1. SSH to the Vagrant VM (see above).
+2. `sudo mkdir -p /workspace/hello/_logs`
+3. `echo "<?php print '<h1>Hello world!</h1>';" > /workspace/hello/index.php`
+4. `sudo nano /etc/httpd/conf.d/hello.conf`
+5. Add the following content:
+
+		<VirtualHost *:80>
+			ServerName hello.localhost
+			DocumentRoot "/workspace/hello"
+        
+			ErrorLog /workspace/_logs/error.log
+			CustomLog /workspace/_logs/access.log combined
+
+			<Directory "/workspace/hello">
+				DirectoryIndex index.php
+			</Directory>
+
+		</VirtualHost>
+
+6. Press CTRL+Q to quit Nano (hit Y when prompted to save changes).
+7. Restart Apache: `sudo service httpd restart`
+8. Visit the following URL in your browser: http://hello.localhost:8080
+
+For more info on Apache virtual host configuration options, visit: https://httpd.apache.org/docs/current/vhosts/name-based.html
