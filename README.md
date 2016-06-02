@@ -1,5 +1,5 @@
 # vagrant-centos6-php56
-Turn-key LAMP/LNMP development stack, based on Centos 6, PHP5.6, MySQL 5.6.
+Turn-key LAMP development stack, based on Centos 6, PHP5.6, MySQL 5.6.
 
 ## Dependencies:
 - git https://git-scm.com/downloads
