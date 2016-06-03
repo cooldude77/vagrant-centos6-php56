@@ -62,7 +62,7 @@ SSH connections to the VM are pretty simple and straightforward:
 
 - In the `./vagrant` directory, type: `vagrant ssh`.
 
-SSH key pairs are provisioned for you by Vagrant, when the VM boots, so you will not have to provide any username or password when you SSH.  You will connect automatically as the 'vagrant' user, and will be able to `sudo` once inside.
+SSH key pairs are provisioned for you, by Vagrant, when the VM boots, so you will not have to provide any login credentials when you connect.  You will automatically login as the 'vagrant' user, and will be free to `sudo` or `sudo su -` once inside.
 
 ## Hosting local sites from the VM
 ### Basic/quick usage
@@ -75,7 +75,7 @@ To set up your own custom virtual hosts, and/or host multiple sites from the sam
 
 1. SSH to the Vagrant VM (see above).
 2. `sudo mkdir -p /workspace/hello/_logs`
-3. `echo "<?php print '<h1>Hello world!</h1>';" > /workspace/hello/index.php`
+3. `echo "<?php print '<h1>Hello world</h1>';" > /workspace/hello/index.php`
 4. `sudo nano /etc/httpd/conf.d/hello.conf`
 5. Add the following content:
 
