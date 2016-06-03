@@ -84,8 +84,8 @@ To set up your own custom virtual hosts, and/or host multiple sites from the sam
 			ServerName hello.localhost
 			DocumentRoot "/workspace/hello"
         
-			ErrorLog /workspace/_logs/error.log
-			CustomLog /workspace/_logs/access.log combined
+			ErrorLog /workspace/hello/_logs/error.log
+			CustomLog /workspace/hello/_logs/access.log combined
 
 			<Directory "/workspace/hello">
 				DirectoryIndex index.php
