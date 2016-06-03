@@ -6,3 +6,4 @@
 
 sudo yum install -y mysql-server
 sudo chkconfig --add mysqld
+sudo service mysqld restart
