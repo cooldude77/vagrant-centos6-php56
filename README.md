@@ -80,6 +80,7 @@ To set up your own custom virtual hosts, and/or host multiple sites from the sam
 5. Add the following content:
 
 		<VirtualHost *:80>
+			
 			ServerName hello.localhost
 			DocumentRoot "/workspace/hello"
         
@@ -92,7 +93,7 @@ To set up your own custom virtual hosts, and/or host multiple sites from the sam
 
 		</VirtualHost>
 
-6. Press CTRL+Q to quit Nano (hit Y when prompted to save changes).
+6. Press CTRL+x to quit Nano (hit Y when prompted to save changes).
 7. Restart Apache: `sudo service httpd restart`
 8. Visit the following URL in your browser: http://hello.localhost:8080
 
