@@ -1,14 +1,14 @@
 # vagrant-centos6-php56
 A turn-key LAMP development stack, based on Centos 6, PHP5.6, MySQL 5.6.
 
-## Dependencies:
+## Dependencies
 You will need to install these local dependencies before you can use Vagrant:
 - git https://git-scm.com/downloads
 - virtualbox https://www.virtualbox.org/wiki/Downloads
 - vagrant https://www.vagrantup.com/downloads.html
 
-## Installation:
-### Steps:
+## Installation
+### Steps
 1. Create a directory to host your VMs:
 	`mkdir -p ~/code/vagrants`
 
@@ -18,7 +18,7 @@ You will need to install these local dependencies before you can use Vagrant:
 3. Clone this repo into that directory:
 	`git clone https://github.com/jimattwogether/vagrant-centos6-php56.git .`
 
-### Notes:
+### Notes
 There are two directories within the checked-out code:
   `./vagrant`
   `./workspace`
@@ -27,43 +27,50 @@ There are two directories within the checked-out code:
 - `./workspace` provides a directory in which to store your working files, which is file-shared to the Vagrant VM - so you can access your working files from both your OS and the Vagrant VM.
 - `./workspace` is also used by the Vagrant VM to serve projects via `http://localhost:8080`
 
-## Starting the Vagrant VM:
+## Starting the VM
 1. 'cd' to the ./vagrant directory
 	`cd ./vagrant`
 
-2. Start the Vagrant VM:
+2. Start the VM:
   `vagrant up`
 
 On first boot, Vagrant may take anywhere up to 10 mins to install required dependencies.  "Patient you must be, young Jedi.".
 
-## Stopping the Vagrant VM:
+## Stopping the VM
 1. 'cd' to the ./vagrant directory
 	`cd ./vagrant`
 
-2. Stop the Vagrant VM:
+2. Stop the VM:
 	`vagrant suspend`
 
-## Resuming a stopped/suspended Vagrant VM:
-1. 'cd' to the ./vagrant directory
+## Restarting the VM
+1. 'cd' to the ./vagrant directory:
 	`cd ./vagrant`
 
-2. Resume the Vagrant VM:
+2. Resume the VM:
 	`vagrant resume`
 
-## SSH to the Vagrant VM:
+## Checking the status of the VM
+1. 'cd' to the ./vagrant directory:
+	`cd ./vagrant`
+
+2. Check the status:
+	`vagrant status`
+
+## SSH'ing to the VM
 SSH connections to the VM are pretty simple and straightforward:
 
 - In the `./vagrant` directory, type: `vagrant ssh`.
 
 SSH key pairs are provisioned for you by Vagrant, when the VM boots, so you will not have to provide any username or password when you SSH.  You will connect automatically as the 'vagrant' user, and will be able to `sudo` once inside.
 
-## Hosting local sites from the VM:
-### Basic/quick usage:
+## Hosting local sites from the VM
+### Basic/quick usage
 By default, Apache will serve everything inside the `./workspace` directory as one site.  This is convenient for anyone with little or no knowledge of configuring Apache, or if time is particularly tight - you could simply have one Vagrant VM per project, and keep things super simple.
 
 However, if your project requries custom configuration, or if you'd prefer to run multiple projects within one VM (recommended if you're having to switch between projects often), you will most likely prefer the 'Advanced' usage (see below).
 
-###Advanced usage:
+###Advanced usage
 To set up your own custom virtual hosts, and/or host multiple sites from the same VM, follow this example to get started:
 
 1. SSH to the Vagrant VM (see above).
