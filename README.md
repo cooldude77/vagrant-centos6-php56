@@ -25,7 +25,7 @@ There are two directories within the checked-out code:
   
 - `./vagrant` contains all the files necessary to run the Vagrant VM.
 - `./workspace` provides a directory in which to store your working files, which is file-shared to the Vagrant VM - so you can access your working files from both your OS and the Vagrant VM.
-- `./workspace` is also used by the Vagrant VM to serve projects via `http://localhost:8080`
+- `./workspace` is also used by the Vagrant VM to serve projects via http://localhost:8080
 
 ## Starting the VM
 1. 'cd' to the ./vagrant directory
@@ -96,7 +96,8 @@ To set up your own custom virtual hosts, and/or host multiple sites from the sam
 		</VirtualHost>
 
 6. Press CTRL+x to quit Nano (hit Y when prompted to save changes).
-7. Restart Apache: `sudo service httpd restart`
-8. Visit the following URL in your browser: http://hello.localhost:8080
+7. Reconfigure Apache to support Name-based Virtual Hosts `sudo cp /vagrant/modules/apache/confs/shared.conf /etc/httpd/conf/httpd.conf`
+8. Restart Apache: `sudo service httpd restart`
+9. Visit the following URL in your browser: http://hello.localhost:8080
 
 For more info on Apache virtual host configuration options, visit: https://httpd.apache.org/docs/current/vhosts/name-based.html
