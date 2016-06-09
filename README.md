@@ -120,3 +120,10 @@ To set up your own custom virtual hosts, and/or host multiple sites from the sam
 9. Visit the following URL in your browser: http://hello.localhost:8080
 
 For more info on Apache virtual host configuration options, visit: https://httpd.apache.org/docs/current/vhosts/name-based.html
+
+## phpMyAdmin
+phpMyAdmin comes pre-installed with passwordless entry (only for use in development environments where non-sensitive or mock data is used).
+
+With the VM running, visit: http://localhost:8080/phpMyAdmin
+
+At the login screen, simply login as the root user.  Leave the password field blank.
