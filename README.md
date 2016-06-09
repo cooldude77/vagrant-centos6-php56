@@ -10,13 +10,16 @@ You will need to install these local dependencies before you can use Vagrant:
 ## Installation
 ### Steps
 1. Create a directory to host your VMs:
-	`mkdir -p ~/code/vagrants/centos6`
+
+		mkdir -p ~/code/vagrants/centos6
 
 2. 'cd' to that directory:
-	`cd ~/code/vagrants/centos6`
+
+		cd ~/code/vagrants/centos6
 
 3. Clone this repo into that directory:
-	`git clone https://github.com/jimattwogether/vagrant-centos6-php56.git .`
+
+		git clone https://github.com/jimattwogether/vagrant-centos6-php56.git .
 
 ### Notes
 There are two directories within the checked-out code:
@@ -29,10 +32,12 @@ There are two directories within the checked-out code:
 
 ## Starting the VM
 1. 'cd' to the ./vagrant directory
-	`cd ./vagrant`
+
+		cd ./vagrant
 
 2. Start the VM:
-  `vagrant up`
+
+		vagrant up
 
 On first boot, Vagrant may take anywhere up to 10 mins to install required dependencies.
 
@@ -40,29 +45,37 @@ On first boot, Vagrant may take anywhere up to 10 mins to install required depen
 
 ## Stopping the VM
 1. 'cd' to the ./vagrant directory
-	`cd ./vagrant`
+
+		cd ./vagrant
 
 2. Stop the VM:
-	`vagrant suspend`
+
+		vagrant suspend
 
 ## Restarting the VM
 1. 'cd' to the ./vagrant directory:
-	`cd ./vagrant`
+
+		cd ./vagrant
 
 2. Resume the VM:
-	`vagrant resume`
+
+		vagrant resume
 
 ## Checking the status of the VM
 1. 'cd' to the ./vagrant directory:
-	`cd ./vagrant`
+
+		cd ./vagrant
 
 2. Check the status:
-	`vagrant status`
+
+		vagrant status
 
 ## SSH'ing to the VM
 SSH connections to the VM are pretty simple and straightforward:
 
-- In the `./vagrant` directory, type: `vagrant ssh`.
+- In the `./vagrant` directory, type:
+
+		vagrant ssh
 
 SSH key pairs are provisioned for you, by Vagrant, when the VM boots, so you will not have to provide any login credentials when you connect.  You will automatically login as the 'vagrant' user, and will be free to `sudo` or `sudo su -` once inside.
 
@@ -96,9 +109,14 @@ To set up your own custom virtual hosts, and/or host multiple sites from the sam
 		</VirtualHost>
 
 6. Press CTRL+x to quit Nano (hit Y when prompted to save changes).
-7. Reconfigure Apache to support Name-based Virtual Hosts 
-	`sudo cp /vagrant/modules/apache/confs/shared.conf /etc/httpd/conf/httpd.conf`
-8. Restart Apache: `sudo service httpd restart`
+7. Reconfigure Apache to support Name-based Virtual Hosts: 
+
+		sudo cp /vagrant/modules/apache/confs/shared.conf /etc/httpd/conf/httpd.conf
+	
+8. Restart Apache:
+
+		sudo service httpd restart
+
 9. Visit the following URL in your browser: http://hello.localhost:8080
 
 For more info on Apache virtual host configuration options, visit: https://httpd.apache.org/docs/current/vhosts/name-based.html
