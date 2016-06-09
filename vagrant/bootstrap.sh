@@ -14,3 +14,4 @@ sh /vagrant/modules/npm/provision.sh
 sh /vagrant/modules/gulp/provision.sh
 sh /vagrant/modules/composer/provision.sh
 sh /vagrant/modules/sass/provision.sh
+sh /vagrant/modules/phpMyAdmin/provision.sh
