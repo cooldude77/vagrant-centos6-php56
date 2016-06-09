@@ -66,9 +66,9 @@ SSH key pairs are provisioned for you, by Vagrant, when the VM boots, so you wil
 
 ## Hosting local sites from the VM
 ### Basic/quick usage
-By default, Apache will serve everything inside the `./workspace` directory as one site.  This is convenient for anyone with little or no knowledge of configuring Apache, or if time is particularly tight - you could simply have one Vagrant VM per project, and keep things super simple.
+By default, Apache will serve everything inside the `./workspace` (`/workspace` inside the VM) directory as one site.  This is convenient for anyone with little or no knowledge of configuring Apache, or if time is particularly tight - you could simply have one Vagrant VM per project, and keep things super simple.
 
-However, if your project requries custom configuration, or if you'd prefer to run multiple projects within one VM (recommended if you're having to switch between projects often), you will most likely prefer the 'Advanced' usage (see below).
+However, if your project requires custom configuration, or if you'd prefer to run multiple projects within one VM (recommended if you're having to switch between projects often), you will most likely prefer the 'Advanced' usage (see below).
 
 ###Advanced usage
 To set up your own custom virtual hosts, and/or host multiple sites from the same VM, follow this example to get started:
