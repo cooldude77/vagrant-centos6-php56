@@ -97,7 +97,7 @@ To set up your own custom virtual hosts, and/or host multiple sites from the sam
 
 6. Press CTRL+x to quit Nano (hit Y when prompted to save changes).
 7. Reconfigure Apache to support Name-based Virtual Hosts 
-	sudo cp /vagrant/modules/apache/confs/shared.conf /etc/httpd/conf/httpd.conf
+	`sudo cp /vagrant/modules/apache/confs/shared.conf /etc/httpd/conf/httpd.conf`
 8. Restart Apache: `sudo service httpd restart`
 9. Visit the following URL in your browser: http://hello.localhost:8080
 
