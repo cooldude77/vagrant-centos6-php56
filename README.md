@@ -11,10 +11,12 @@ You will need to install these local dependencies before you can use Vagrant:
 ## Installation
 ### Steps
 1. Create a directory to host your VMs:
-	`mkdir -p ~/code/vagrants`
+
+		mkdir -p ~/code/vagrants/centos6
 
 2. 'cd' to that directory:
-	`cd ~/code/vagrants`
+
+		cd ~/code/vagrants/centos6
 
 3. Clone this repo into that directory.
 
@@ -25,52 +27,64 @@ There are two directories within the checked-out code:
   
 - `./vagrant` contains all the files necessary to run the Vagrant VM.
 - `./workspace` provides a directory in which to store your working files, which is file-shared to the Vagrant VM - so you can access your working files from both your OS and the Vagrant VM.
-- `./workspace` is also used by the Vagrant VM to serve projects via `http://localhost:8080`
+- `./workspace` is also used by the Vagrant VM to serve projects via http://localhost:8080
 
 ## Starting the VM
 1. 'cd' to the ./vagrant directory
-	`cd ./vagrant`
+
+		cd ./vagrant
 
 2. Start the VM:
-  `vagrant up`
 
-On first boot, Vagrant may take anywhere up to 10 mins to install required dependencies.  "Patient you must be, young Jedi.".
+		vagrant up
+
+On first boot, Vagrant may take anywhere up to 10 mins to install required dependencies.
+
+"Patient you must be, young Jedi.".
 
 ## Stopping the VM
 1. 'cd' to the ./vagrant directory
-	`cd ./vagrant`
+
+		cd ./vagrant
 
 2. Stop the VM:
-	`vagrant suspend`
+
+		vagrant suspend
 
 ## Restarting the VM
 1. 'cd' to the ./vagrant directory:
-	`cd ./vagrant`
+
+		cd ./vagrant
 
 2. Resume the VM:
-	`vagrant resume`
+
+		vagrant resume
 
 ## Checking the status of the VM
 1. 'cd' to the ./vagrant directory:
-	`cd ./vagrant`
+
+		cd ./vagrant
 
 2. Check the status:
-	`vagrant status`
+
+		vagrant status
 
 ## SSH'ing to the VM
 SSH connections to the VM are pretty simple and straightforward:
 
-- In the `./vagrant` directory, type: `vagrant ssh`.
+- In the `./vagrant` directory, type:
+
+		vagrant ssh
 
 SSH key pairs are provisioned for you, by Vagrant, when the VM boots, so you will not have to provide any login credentials when you connect.  You will automatically login as the 'vagrant' user, and will be free to `sudo` or `sudo su -` once inside.
 
 ## Hosting local sites from the VM
-### Basic/quick usage
+### Basic/quick usage (dedicated/single host)
 By default, Apache will serve everything inside the `./workspace` (`/workspace` inside the VM) directory as one site.  This is convenient for anyone with little or no knowledge of configuring Apache, or if time is particularly tight - you could simply have one Vagrant VM per project, and keep things super simple.
 
 However, if your project requires custom configuration, or if you'd prefer to run multiple projects within one VM (recommended if you're having to switch between projects often), you will most likely prefer the 'Advanced' usage (see below).
 
-###Advanced usage
+###Advanced usage (shared/multiple host/s)
 To set up your own custom virtual hosts, and/or host multiple sites from the same VM, follow this example to get started:
 
 1. SSH to the Vagrant VM (see above).
@@ -94,7 +108,21 @@ To set up your own custom virtual hosts, and/or host multiple sites from the sam
 		</VirtualHost>
 
 6. Press CTRL+x to quit Nano (hit Y when prompted to save changes).
-7. Restart Apache: `sudo service httpd restart`
-8. Visit the following URL in your browser: http://hello.localhost:8080
+7. Reconfigure Apache to support Name-based Virtual Hosts: 
+
+		sudo cp /vagrant/modules/apache/confs/shared.conf /etc/httpd/conf/httpd.conf
+	
+8. Restart Apache:
+
+		sudo service httpd restart
+
+9. Visit the following URL in your browser: http://hello.localhost:8080
 
 For more info on Apache virtual host configuration options, visit: https://httpd.apache.org/docs/current/vhosts/name-based.html
+
+## phpMyAdmin
+phpMyAdmin comes pre-installed with passwordless entry (only for use in development environments where non-sensitive or mock data is used).
+
+With the VM running, visit: http://localhost:8080/phpMyAdmin
+
+At the login screen, simply login as the root user.  Leave the password field blank.
