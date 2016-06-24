@@ -6,6 +6,7 @@ You will need to install these local dependencies before you can use Vagrant:
 - git https://git-scm.com/downloads
 - virtualbox https://www.virtualbox.org/wiki/Downloads
 - vagrant https://www.vagrantup.com/downloads.html
+- vagrant-vbguest plugin: https://github.com/dotless-de/vagrant-vbguest
 
 ## Installation
 ### Steps
@@ -17,9 +18,7 @@ You will need to install these local dependencies before you can use Vagrant:
 
 		cd ~/code/vagrants/centos6
 
-3. Clone this repo into that directory:
-
-		git clone https://github.com/jimattwogether/vagrant-centos6-php56.git .
+3. Clone this repo into that directory.
 
 ### Notes
 There are two directories within the checked-out code:
