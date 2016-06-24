@@ -6,6 +6,7 @@ You will need to install these local dependencies before you can use Vagrant:
 - git https://git-scm.com/downloads
 - virtualbox https://www.virtualbox.org/wiki/Downloads
 - vagrant https://www.vagrantup.com/downloads.html
+- vagrant-vbguest plugin: https://github.com/dotless-de/vagrant-vbguest
 
 ## Installation
 ### Steps
