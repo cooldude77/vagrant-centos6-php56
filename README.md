@@ -16,8 +16,7 @@ You will need to install these local dependencies before you can use Vagrant:
 2. 'cd' to that directory:
 	`cd ~/code/vagrants`
 
-3. Clone this repo into that directory:
-	`git clone https://github.com/jimattwogether/vagrant-centos6-php56.git .`
+3. Clone this repo into that directory.
 
 ### Notes
 There are two directories within the checked-out code:
